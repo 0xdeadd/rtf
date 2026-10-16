@@ -73,6 +73,17 @@ export default function Footer() {
             RTF is not affiliated with or endorsed by Alcoholics Anonymous World Services, Inc.
           </p>
           <p>&copy; {new Date().getFullYear()} Road To Freedom Group.</p>
+          <p>
+            Made by{" "}
+            <a
+              href="https://colorpop.ink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-amber transition-colors"
+            >
+              Color Pop
+            </a>
+          </p>
         </div>
       </div>
     </footer>
