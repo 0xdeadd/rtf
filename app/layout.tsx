@@ -10,24 +10,22 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "The Hour Club",
+  title: "Road To Freedom Group | RTF",
   description:
-    "The Hour Club — a members-only recovery community hub in Carrollton, GA.",
+    "Road To Freedom Group (RTF), an open AA home group meeting daily at the Log Cabin, 901 South Park St, Carrollton, GA.",
   keywords: [
     "AA meetings Carrollton GA",
-    "NA meetings Carrollton GA",
-    "Al-Anon Carrollton GA",
-    "CMA meetings Carrollton GA",
-    "recovery clubhouse",
-    "Alcoholics Anonymous",
-    "Narcotics Anonymous",
-    "The Hour Club",
-    "Consolidated Group",
+    "Alcoholics Anonymous Carrollton GA",
+    "open AA meeting",
+    "Road To Freedom Group",
+    "RTF",
+    "Log Cabin Carrollton",
   ],
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "The Hour Club",
+    title: "Road To Freedom Group | RTF",
     description:
-      "A members-only recovery community hub in Carrollton, GA.",
+      "An open AA home group meeting daily at the Log Cabin in Carrollton, GA.",
     type: "website",
     locale: "en_US",
   },

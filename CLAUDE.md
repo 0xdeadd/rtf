@@ -1,10 +1,15 @@
 @AGENTS.md
 
-## Supabase backup (2026-04-30)
+## Static site (Supabase removed 2026-10-16)
 
-Original Supabase project `zclzyzuevrufxbkcnvkl` ("hour-club") under org `info@zanycuts.com's Org` was scheduled for deletion on 2026-04-30 to stop $10/mo compute. Full schema + data dump lives at `.supabase-backup/restore.sql` — paste into the SQL editor of a new free-tier project to rebuild.
+Public static site for the Road To Freedom Group (RTF). No auth, no API routes, no Supabase. The old Supabase backup at `.supabase-backup/` is kept locally only (restore.sql), do not touch it.
 
-Tables backed up: `meetings` (28), `events` (8), `announcements` (3), `meeting_notices` (2). RLS enabled with public-read policies on all four. No auth users, no storage, no edge functions to migrate.
+Data files (imported at build time):
+- `data/meetings.json`: day_of_week (0=Sun), time, tags, note
+- `data/meeting-notices.json`: notices shown on the meetings page
+- `data/events.json`: events (empty array shows the empty state)
+- `data/announcements.json`: announcements, read by the home and announcements pages
 
-After restoring, update the Supabase URL + anon key in this project's env files.
+Tenth Step link target: https://tenth-step-taupe.vercel.app (nav, footer, home card; opens in a new tab).
 
+Deploy with `vercel --prod`. Git is not connected to Vercel.

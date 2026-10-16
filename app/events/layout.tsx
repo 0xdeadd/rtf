@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Events & Schedule — The Hour Club",
+  title: "Events | RTF",
   description:
-    "Special events, celebrations, potlucks, group conscience meetings, and more at The Hour Club.",
+    "Special events and celebrations from the Road To Freedom Group in Carrollton, GA.",
 };
 
 export default function EventsLayout({

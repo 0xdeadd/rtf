@@ -3,19 +3,13 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Clock, LogOut } from "lucide-react";
+import { Menu, X, Clock, ExternalLink } from "lucide-react";
+
+const TENTH_STEP_URL = "https://tenth-step-taupe.vercel.app";
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-
-  // Don't show nav on login page
-  if (pathname === "/login") return null;
-
-  async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
-    window.location.href = "/login";
-  }
 
   const links = [
     { href: "/", label: "Home" },
@@ -32,7 +26,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 text-navy font-semibold text-lg">
             <Clock className="w-6 h-6 text-amber" aria-hidden="true" />
-            <span>The Hour Club</span>
+            <span>RTF</span>
           </Link>
 
           {/* Desktop links */}
@@ -48,13 +42,15 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 text-text-muted hover:text-red-600 transition-colors"
+            <a
+              href={TENTH_STEP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-amber transition-colors"
             >
-              <LogOut className="w-4 h-4" aria-hidden="true" />
-              Log Out
-            </button>
+              Tenth Step
+              <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -85,16 +81,16 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                setMobileOpen(false);
-                handleLogout();
-              }}
-              className="inline-flex items-center gap-1.5 text-text-muted hover:text-red-600 transition-colors text-left"
+            <a
+              href={TENTH_STEP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-amber transition-colors"
+              onClick={() => setMobileOpen(false)}
             >
-              <LogOut className="w-4 h-4" aria-hidden="true" />
-              Log Out
-            </button>
+              Tenth Step
+              <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+            </a>
           </div>
         </div>
       )}

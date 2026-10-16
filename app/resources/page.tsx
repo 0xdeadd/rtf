@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BookOpen, Phone, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resources — The Hour Club",
+  title: "Resources | RTF",
   description:
     "Recovery resources, helplines, and links for AA, NA, Al-Anon, and more.",
 };
@@ -11,7 +11,7 @@ const sections = [
   {
     title: "Alcoholics Anonymous (AA)",
     links: [
-      { label: "AA.org — Official Website", url: "https://www.aa.org" },
+      { label: "AA.org, Official Website", url: "https://www.aa.org" },
       {
         label: "Big Book Online",
         url: "https://www.aa.org/the-big-book",
@@ -25,7 +25,7 @@ const sections = [
   {
     title: "Narcotics Anonymous (NA)",
     links: [
-      { label: "NA.org — Official Website", url: "https://www.na.org" },
+      { label: "NA.org, Official Website", url: "https://www.na.org" },
       {
         label: "Find a Meeting (NA)",
         url: "https://www.na.org/meetingsearch/",
@@ -36,7 +36,7 @@ const sections = [
     title: "Al-Anon Family Groups",
     links: [
       {
-        label: "Al-Anon.org — Official Website",
+        label: "Al-Anon.org, Official Website",
         url: "https://al-anon.org",
       },
       {

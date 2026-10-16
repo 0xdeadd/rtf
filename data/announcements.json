@@ -1,23 +1,9 @@
 [
   {
     "id": "1",
-    "title": "Welcome to our new website!",
-    "date": "2026-03-28",
-    "body": "We've launched a brand new members-only website for The Hour Club. Here you'll find meeting schedules, announcements, resources, and more. Bookmark this page and check back often for updates.",
-    "category": "News"
-  },
-  {
-    "id": "2",
-    "title": "Spring cleanup day — volunteers needed",
-    "date": "2026-04-12",
-    "body": "Join us Saturday, April 12th at 9:00 AM for our spring cleanup. We'll be tidying up the clubhouse inside and out. Bring gloves and a good attitude. Coffee and donuts provided. Many hands make light work!",
-    "category": "Event"
-  },
-  {
-    "id": "3",
-    "title": "New Thursday night Big Book study",
-    "date": "2026-03-20",
-    "body": "Starting this month, we've added a Big Book Study meeting every Thursday at 8:00 PM. This is an open meeting and everyone is welcome. Come join the discussion as we work through the Big Book together.",
-    "category": "Schedule"
+    "title": "Welcome to the RTF website",
+    "date": "2026-10-16",
+    "category": "News",
+    "body": "This is the new home online for the Road To Freedom Group. Here you will find our meeting schedule, announcements, and recovery resources. Newcomers are always welcome at the Log Cabin."
   }
 ]

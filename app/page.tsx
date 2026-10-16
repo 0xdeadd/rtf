@@ -2,6 +2,7 @@ import {
   Megaphone,
   CalendarDays,
   BookOpen,
+  NotebookPen,
   MapPin,
   ArrowRight,
 } from "lucide-react";
@@ -9,7 +10,7 @@ import Link from "next/link";
 import announcements from "@/data/announcements.json";
 
 export default function Home() {
-  const latestAnnouncements = announcements
+  const latestAnnouncements = [...announcements]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
 
@@ -25,12 +26,15 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight max-w-3xl mx-auto">
             Welcome to{" "}
-            <span className="text-amber-light">The Hour Club</span>
+            <span className="text-amber-light">Road To Freedom</span>
           </h1>
+          <p className="mt-4 text-base sm:text-lg font-medium text-white/80">
+            RTF Group of Alcoholics Anonymous, Carrollton, GA
+          </p>
 
           <p className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Your private community hub for meeting schedules, announcements,
-            resources, and everything you need to stay connected.
+            An open AA home group meeting every day at the Log Cabin in
+            Carrollton. Newcomers are always welcome.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -55,7 +59,7 @@ export default function Home() {
       {/* Quick Links */}
       <section className="bg-warm-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               {
                 icon: CalendarDays,
@@ -66,7 +70,7 @@ export default function Home() {
               {
                 icon: Megaphone,
                 title: "Announcements",
-                description: "Club news, events, and schedule changes.",
+                description: "Group news, events, and schedule changes.",
                 href: "/announcements",
               },
               {
@@ -78,26 +82,48 @@ export default function Home() {
               {
                 icon: MapPin,
                 title: "Contact",
-                description: "Directions, parking, and how to reach us.",
+                description: "Directions to the Log Cabin and who to call.",
                 href: "/contact",
               },
-            ].map(({ icon: Icon, title, description, href }) => (
-              <Link
-                key={title}
-                href={href}
-                className="bg-white rounded-xl p-6 border border-warm-gray hover:shadow-md transition-shadow group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-amber/10 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-amber-dark" aria-hidden="true" />
-                </div>
-                <h3 className="font-semibold text-navy-dark mb-2 group-hover:text-amber transition-colors">
-                  {title}
-                </h3>
-                <p className="text-sm text-text-muted leading-relaxed">
-                  {description}
-                </p>
-              </Link>
-            ))}
+              {
+                icon: NotebookPen,
+                title: "Tenth Step",
+                description: "Nightly inventory, right on your phone.",
+                href: "https://tenth-step-taupe.vercel.app",
+                external: true,
+              },
+            ].map(({ icon: Icon, title, description, href, external }) => {
+              const cardClass =
+                "bg-white rounded-xl p-6 border border-warm-gray hover:shadow-md transition-shadow group";
+              const inner = (
+                <>
+                  <div className="w-10 h-10 rounded-lg bg-amber/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-amber-dark" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-navy-dark mb-2 group-hover:text-amber transition-colors">
+                    {title}
+                  </h3>
+                  <p className="text-sm text-text-muted leading-relaxed">
+                    {description}
+                  </p>
+                </>
+              );
+              return external ? (
+                <a
+                  key={title}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link key={title} href={href} className={cardClass}>
+                  {inner}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
