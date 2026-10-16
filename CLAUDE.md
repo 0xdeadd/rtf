@@ -13,3 +13,9 @@ Data files (imported at build time):
 Tenth Step link target: https://tenth-step-taupe.vercel.app (nav, footer, home card; opens in a new tab).
 
 Deploy with `vercel --prod`. Git is not connected to Vercel.
+
+## Deploy
+
+- Vercel project: rtf-carrollton (git disconnected). Live: https://rtf-carrollton.vercel.app (verified 2026-10-16).
+- Deploy: `vercel --prod`, then `git push` separately. GitHub: 0xdeadd/rtf.
+- Research on the group and schedule sources: docs/rtf-findings.md (schedule unverified with the group).
