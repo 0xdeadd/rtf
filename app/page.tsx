@@ -7,12 +7,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import announcements from "@/data/announcements.json";
+import { getAnnouncements } from "@/lib/data";
 
-export default function Home() {
-  const latestAnnouncements = [...announcements]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+export const revalidate = 3600;
+
+export default async function Home() {
+  const latestAnnouncements = (await getAnnouncements()).slice(0, 3);
 
   return (
     <>

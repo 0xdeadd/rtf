@@ -84,6 +84,11 @@ export default function Footer() {
               Color Pop
             </a>
           </p>
+          <p>
+            <Link href="/admin" className="hover:text-amber transition-colors">
+              Admin
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

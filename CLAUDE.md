@@ -1,14 +1,16 @@
 @AGENTS.md
 
-## Static site (Supabase removed 2026-10-16)
+## Architecture (Supabase + admin, 2026-10-16)
 
-Public static site for the Road To Freedom Group (RTF). No auth, no API routes, no Supabase. The old Supabase backup at `.supabase-backup/` is kept locally only (restore.sql), do not touch it.
+Public site for the Road To Freedom Group (RTF). Content lives in Supabase and is edited at `/admin`. The public pages stay statically prerendered (ISR, `revalidate = 3600`) and admin writes call `revalidatePath` so changes show up right away.
 
-Data files (imported at build time):
-- `data/meetings.json`: day_of_week (0=Sun), time, tags, note
-- `data/meeting-notices.json`: notices shown on the meetings page
-- `data/events.json`: events (empty array shows the empty state)
-- `data/announcements.json`: announcements, read by the home and announcements pages
+- Supabase project ref `vjguxzlqnmuaxmlgveuv` is SHARED with other apps. Only touch the tables `meetings`, `meeting_notices`, `announcements`, `events`. Public SELECT is allowed by RLS; writes need the service role key.
+- Reads: `lib/data.ts` (getMeetings, getMeetingNotices, getAnnouncements, getEvents) use the anon client and fall back to `data/*.json` if env is missing or a query errors. Keep the JSON files as the fallback source.
+- Clients: `lib/supabase.ts` (`supabaseAnon()`, `supabaseAdmin()`), created lazily so builds work without env vars. Server-only.
+- Admin: `/admin` (UI in `app/admin/(protected)`, sign-in at `/admin/login`). One shared password in the Vercel env var `ADMIN_PASSWORD`. No middleware: the protected layout and page check the cookie, and every write route handler under `app/api/admin/**` calls `isAdmin()` first (401 otherwise). Shared handler logic is in `lib/admin-api.ts`.
+- Session: cookie `rtf_admin`, token `${expiresAtMs}.${HMAC-SHA256 hex}` signed with `ADMIN_SESSION_SECRET`, httpOnly, 30 days (`lib/auth.ts`).
+- Env vars (see `.env.example`): NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, ADMIN_PASSWORD, ADMIN_SESSION_SECRET. Set in Vercel for production.
+- The old Supabase backup at `.supabase-backup/` is kept locally only (restore.sql), do not touch it.
 
 Tenth Step link target: https://tenth-step-taupe.vercel.app (nav, footer, home card; opens in a new tab).
 

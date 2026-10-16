@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Megaphone } from "lucide-react";
-import announcementsData from "@/data/announcements.json";
+import { getAnnouncements } from "@/lib/data";
 
-export default function AnnouncementsPage() {
-  const announcements = [...announcementsData].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+export const revalidate = 3600;
+
+export default async function AnnouncementsPage() {
+  const announcements = await getAnnouncements();
 
   return (
     <>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { CalendarDays, Clock, Info } from "lucide-react";
-import meetingsData from "@/data/meetings.json";
-import notices from "@/data/meeting-notices.json";
+import TagBadge from "@/app/components/TagBadge";
+import { getMeetings, getMeetingNotices } from "@/lib/data";
+
+export const revalidate = 3600;
 
 const DAYS = [
   "Sunday",
@@ -15,24 +17,11 @@ const DAYS = [
 
 const DAY_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Monday first, Sunday last
 
-const tagColorMap: Record<string, string> = {
-  "12 Step Study": "bg-emerald-100 text-emerald-800",
-  Grapevine: "bg-purple-100 text-purple-800",
-  Discussion: "bg-blue-100 text-blue-800",
-};
-
-function TagBadge({ label }: { label: string }) {
-  const color = tagColorMap[label] || "bg-amber/10 text-amber-dark";
-  return (
-    <span
-      className={`inline-block text-xs font-medium px-2.5 py-0.5 rounded-full ${color}`}
-    >
-      {label}
-    </span>
-  );
-}
-
-export default function MeetingsPage() {
+export default async function MeetingsPage() {
+  const [meetingsData, notices] = await Promise.all([
+    getMeetings(),
+    getMeetingNotices(),
+  ]);
   const grouped = DAY_ORDER.map((day) => ({
     day,
     items: meetingsData.filter((m) => m.day_of_week === day),
@@ -86,7 +75,7 @@ export default function MeetingsPage() {
                 <div className="divide-y divide-warm-gray">
                   {items.map((meeting) => (
                     <div
-                      key={`${day}-${meeting.time}`}
+                      key={meeting.id}
                       className="px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
                     >
                       <div className="flex items-center gap-2 sm:w-28 shrink-0">
