@@ -22,12 +22,30 @@ export const metadata: Metadata = {
     "Log Cabin Carrollton",
   ],
   robots: { index: true, follow: true },
+  metadataBase: new URL("https://rtf-carrollton.vercel.app"),
   openGraph: {
     title: "Road To Freedom Group | RTF",
     description:
-      "An open AA home group meeting daily at the Log Cabin in Carrollton, GA.",
+      "An open AA home group meeting daily at the Log Cabin in Carrollton, GA. Newcomers welcome.",
+    url: "/",
+    siteName: "Road To Freedom Group",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Road To Freedom Group: open AA meetings every day at the Log Cabin, Carrollton, GA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Road To Freedom Group | RTF",
+    description:
+      "An open AA home group meeting daily at the Log Cabin in Carrollton, GA. Newcomers welcome.",
+    images: ["/og.png"],
   },
 };
 
