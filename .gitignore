@@ -43,3 +43,6 @@ next-env.d.ts
 # local migration backup — keep off public repo
 .supabase-backup/
 !.env.example
+
+# personal drafts
+drafts.md

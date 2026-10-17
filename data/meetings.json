@@ -1,10 +1,73 @@
 [
-  { "day_of_week": 0, "time": "9:00 AM", "tags": ["Open"], "note": "" },
-  { "day_of_week": 0, "time": "5:45 PM", "tags": ["Open", "Discussion"], "note": "" },
-  { "day_of_week": 1, "time": "5:45 PM", "tags": ["Open", "Discussion"], "note": "" },
-  { "day_of_week": 2, "time": "5:45 PM", "tags": ["Open", "Discussion"], "note": "" },
-  { "day_of_week": 3, "time": "5:45 PM", "tags": ["Open", "12 Step Study"], "note": "" },
-  { "day_of_week": 4, "time": "5:45 PM", "tags": ["Open", "Discussion"], "note": "" },
-  { "day_of_week": 5, "time": "5:45 PM", "tags": ["Open", "Grapevine"], "note": "" },
-  { "day_of_week": 6, "time": "5:45 PM", "tags": ["Open", "Discussion"], "note": "" }
+  {
+    "day_of_week": 0,
+    "time": "9:00 AM",
+    "tags": [
+      "Open"
+    ],
+    "note": ""
+  },
+  {
+    "day_of_week": 0,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "11th Step"
+    ],
+    "note": "11th Step Prayer and Meditation"
+  },
+  {
+    "day_of_week": 1,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "Big Book"
+    ],
+    "note": "Big Book Study, first 164 pages"
+  },
+  {
+    "day_of_week": 2,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "Discussion"
+    ],
+    "note": ""
+  },
+  {
+    "day_of_week": 3,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "12 Step Study"
+    ],
+    "note": "Step Study"
+  },
+  {
+    "day_of_week": 4,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "Discussion"
+    ],
+    "note": ""
+  },
+  {
+    "day_of_week": 5,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "Grapevine"
+    ],
+    "note": ""
+  },
+  {
+    "day_of_week": 6,
+    "time": "5:45 PM",
+    "tags": [
+      "Open",
+      "Discussion"
+    ],
+    "note": ""
+  }
 ]

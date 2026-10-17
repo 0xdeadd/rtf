@@ -2,6 +2,8 @@ const tagColorMap: Record<string, string> = {
   "12 Step Study": "bg-emerald-100 text-emerald-800",
   Grapevine: "bg-purple-100 text-purple-800",
   Discussion: "bg-blue-100 text-blue-800",
+  "Big Book": "bg-rose-100 text-rose-800",
+  "11th Step": "bg-indigo-100 text-indigo-800",
 };
 
 export default function TagBadge({ label }: { label: string }) {

@@ -121,6 +121,14 @@ export default async function MeetingsPage() {
                 Focused study and discussion of the 12 Steps.
               </div>
               <div>
+                <strong className="text-navy-dark">Big Book</strong>: Reading
+                and study of the Big Book, focused on the first 164 pages.
+              </div>
+              <div>
+                <strong className="text-navy-dark">11th Step</strong>: Prayer
+                and meditation, guided by the Eleventh Step.
+              </div>
+              <div>
                 <strong className="text-navy-dark">Grapevine</strong>: Reading
                 and discussion of articles from the AA Grapevine magazine.
               </div>

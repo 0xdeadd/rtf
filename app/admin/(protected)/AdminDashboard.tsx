@@ -28,6 +28,7 @@ const ALL_TAGS = [
   "Closed",
   "Discussion",
   "12 Step Study",
+  "11th Step",
   "Big Book",
   "Grapevine",
   "Speaker",
