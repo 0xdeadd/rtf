@@ -21,3 +21,5 @@ Deploy with `vercel --prod`. Git is not connected to Vercel.
 - Vercel project: rtf-carrollton (git disconnected). Live: https://rtf-carrollton.vercel.app (verified 2026-10-16).
 - Deploy: `vercel --prod`, then `git push` separately. GitHub: 0xdeadd/rtf.
 - Research on the group and schedule sources: docs/rtf-findings.md (schedule unverified with the group).
+
+- 2026-10-16: deleted the old Hour Club rows (28 meetings, 2 notices, 3 announcements, 8 events, all created April 2026) from the four tables. They are preserved in .supabase-backup/restore.sql (local only). Note: list_tables row counts are estimates and showed 0 while those rows existed; use count(*) to check.
